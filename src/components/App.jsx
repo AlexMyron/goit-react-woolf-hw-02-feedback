@@ -40,7 +40,10 @@ class App extends Component {
         }}
       >
         <Section title="Please, Leave a Feedback">
-          <FeedbackOptions buttonHandler={this.onLeaveFeedback} />
+          <FeedbackOptions
+            buttonHandler={this.onLeaveFeedback}
+            options={{ good, neutral, bad }}
+          />
         </Section>
         <Section title="Statistics">
           {total ? (

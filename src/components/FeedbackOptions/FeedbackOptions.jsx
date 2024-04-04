@@ -1,25 +1,19 @@
-import { Component } from 'react';
-
 import classes from './FeedbackOptions.module.css';
 
-const BUTTONS_LIST = ['good', 'neutral', 'bad'];
+const FeedbackOptions = ({ buttonHandler, options }) => {
+  return (
+    <div className={classes['button-bar']}>
+      {Object.keys(options).map(buttonName => (
+        <button
+          className={classes.button}
+          key={buttonName}
+          onClick={() => buttonHandler(buttonName)}
+        >
+          {buttonName}
+        </button>
+      ))}
+    </div>
+  );
+};
 
-export default class FeedbackOptions extends Component {
-  render() {
-    const { buttonHandler } = this.props;
-
-    return (
-      <div className={classes['button-bar']}>
-        {BUTTONS_LIST.map(buttonName => (
-          <button
-            className={classes.button}
-            key={buttonName}
-            onClick={() => buttonHandler(buttonName)}
-          >
-            {buttonName}
-          </button>
-        ))}
-      </div>
-    );
-  }
-}
+export default FeedbackOptions;
